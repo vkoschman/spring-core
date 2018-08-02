@@ -8,12 +8,8 @@ import javax.inject.Inject;
 @Component
 public class Human implements Unit {
 
-    private Mount mount;
-
     @Inject
-    public void setMount(Mount mount) {
-        this.mount = mount;
-    }
+    private Mount mount;
 
     @Override
     public void mountMove() {
