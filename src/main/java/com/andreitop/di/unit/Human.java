@@ -11,7 +11,7 @@ public class Human implements Unit {
     private Mount mount;
 
     @Inject
-    public Human(Mount mount) {
+    public void setMount(Mount mount) {
         this.mount = mount;
     }
 
