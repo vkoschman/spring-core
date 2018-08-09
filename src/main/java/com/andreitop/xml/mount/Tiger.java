@@ -1,4 +1,4 @@
-package com.andreitop.di.mount;
+package com.andreitop.xml.mount;
 
 public class Tiger implements Mount {
         public void move() {

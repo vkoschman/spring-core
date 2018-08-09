@@ -1,6 +1,6 @@
-package com.andreitop.di.unit;
+package com.andreitop.xml.unit;
 
-import com.andreitop.di.mount.Wolf;
+import com.andreitop.xml.mount.Wolf;
 
 public class Orc implements Unit {
 

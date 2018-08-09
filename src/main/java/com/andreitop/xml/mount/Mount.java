@@ -1,4 +1,4 @@
-package com.andreitop.di.mount;
+package com.andreitop.xml.mount;
 
 public interface Mount {
     void move();

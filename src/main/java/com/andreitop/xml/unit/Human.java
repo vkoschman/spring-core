@@ -1,6 +1,6 @@
-package com.andreitop.di.unit;
+package com.andreitop.xml.unit;
 
-import com.andreitop.di.mount.Mount;
+import com.andreitop.xml.mount.Mount;
 
 public class Human implements Unit {
 
