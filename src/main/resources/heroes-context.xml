@@ -7,6 +7,11 @@
     <!--can be inside property/constructor namespaces-->
     <bean id="shadowTiger" class="com.andreitop.xml.mount.Tiger"/>
 
+    <bean id="knight" class="com.andreitop.xml.unit.Human">
+        <!--use index for more than one references-->
+        <constructor-arg value="magicSword" />
+        <constructor-arg ref="shadowTiger" />
+    </bean>
 </beans>
 
 
