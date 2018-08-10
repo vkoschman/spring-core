@@ -9,8 +9,8 @@
 
     <bean id="knight" class="com.andreitop.xml.unit.Human">
         <!--use index for more than one references or names with bean id-->
-        <constructor-arg value="soulBlade"/>
-        <constructor-arg value="thunderFury"/>
+        <constructor-arg value="soulBlade" index="2"/>
+        <constructor-arg value="thunderFury" index="1"/>
         <constructor-arg ref="shadowTiger" />
     </bean>
 </beans>
