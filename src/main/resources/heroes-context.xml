@@ -4,9 +4,7 @@
        xmlns:c="http://www.springframework.org/schema/c" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="frostWolf" class="com.andreitop.xml.mount.Wolf"/>
-    <!--can be inside property/constructor namespaces-->
-    <bean id="shadowTiger" class="com.andreitop.xml.mount.Tiger"/>
+    <import resource="mount-context.xml"/>
 
     <bean id="knight" class="com.andreitop.xml.unit.Human"
         c:_2="soulBlade"

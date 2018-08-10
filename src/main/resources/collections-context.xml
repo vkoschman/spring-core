@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="mount-context.xml"/>
+
+    <bean id="zulJin" class="com.andreitop.xml.unit.Troll">
+        <property name="listOfMounts">
+            <list>
+                <bean id="grayWolf" class="com.andreitop.xml.mount.Wolf"/>
+                <null/>
+                <ref bean="shadowTiger"/>
+            </list>
+        </property>
+        <property name="setOfMounts">
+            <set>
+                <ref bean="shadowTiger"/>
+                <ref bean="frostWolf"/>
+            </set>
+        </property>
+        <property name="mapOfMounts">
+            <map>
+                <entry key="m1" value-ref="frostWolf"/>
+                <entry key="m2" value-ref="shadowTiger"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>
+
+
+
+
