@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="frostWolf" class="com.andreitop.xml.mount.Wolf"/>
     <!--can be inside property/constructor namespaces-->
     <bean id="shadowTiger" class="com.andreitop.xml.mount.Tiger"/>
 
-    <bean id="knight" class="com.andreitop.xml.unit.Human">
-        <!--use index for more than one references or names with bean id-->
-        <constructor-arg value="soulBlade" index="2"/>
-        <constructor-arg value="thunderFury" index="1"/>
-        <constructor-arg ref="shadowTiger" />
-    </bean>
+    <bean id="knight" class="com.andreitop.xml.unit.Human"
+        c:_2="soulBlade"
+        c:_1="thunderFury"
+        c:mount-ref="shadowTiger"
+    />
 
-    <bean id="trall" class="com.andreitop.xml.unit.Orc">
-        <constructor-arg ref="frostWolf"/>
-        <property name="weapon" value="furryAxe"/>
-        <property name="colorCode" value="9"/>
-    </bean>
+    <bean id="trall" class="com.andreitop.xml.unit.Orc"
+        c:mount-ref="frostWolf"
+        p:weapon="furryAxe"
+        p:colorCode="9"
+    />
 </beans>
 
 
