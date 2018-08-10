@@ -13,6 +13,12 @@
         <constructor-arg value="thunderFury" index="1"/>
         <constructor-arg ref="shadowTiger" />
     </bean>
+
+    <bean id="trall" class="com.andreitop.xml.unit.Orc">
+        <constructor-arg ref="frostWolf"/>
+        <property name="weapon" value="furryAxe"/>
+        <property name="colorCode" value="9"/>
+    </bean>
 </beans>
 
 
