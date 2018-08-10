@@ -36,7 +36,8 @@ public class XmlConfigurationTest {
 
     @Test
     public void testHumanConstructor() {
-        assertThat(human.getWeapon(), equalToIgnoringCase("magicsword"));
+        assertThat(human.getLeftHandWeaponWeapon(), equalToIgnoringCase("thunderfury"));
+        assertThat(human.getRightHandWeaponWeapon(), equalToIgnoringCase("soulblade"));
         assertThat(human.getMount(), instanceOf(Tiger.class));
     }
 

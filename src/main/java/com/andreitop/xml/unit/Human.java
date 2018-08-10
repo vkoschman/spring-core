@@ -5,11 +5,13 @@ import com.andreitop.xml.mount.Mount;
 public class Human implements Unit {
 
     private Mount mount;
-    private String weapon;
+    private String leftHandWeapon;
+    private String rightHandWeapon;
 
-    public Human(Mount mount, String weapon) {
+    public Human(Mount mount, String leftHandWeapon, String rightHandWeapon) {
         this.mount = mount;
-        this.weapon = weapon;
+        this.leftHandWeapon = leftHandWeapon;
+        this.rightHandWeapon = rightHandWeapon;
     }
 
     @Override
@@ -17,8 +19,12 @@ public class Human implements Unit {
         mount.move();
     }
 
-    public String getWeapon() {
-        return weapon;
+    public String getLeftHandWeaponWeapon() {
+        return leftHandWeapon;
+    }
+
+    public String getRightHandWeaponWeapon() {
+        return rightHandWeapon;
     }
 
     public Mount getMount() {
