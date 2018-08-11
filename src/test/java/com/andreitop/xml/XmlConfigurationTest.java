@@ -81,4 +81,9 @@ public class XmlConfigurationTest {
     public void testTrollCreationDate() {
         assertThat(troll.getCreationDate().toString(), containsString("2004"));
     }
+
+    @Test
+    public void testTrollColorCode() {
+        assertThat(troll.getColorCode(), allOf(greaterThan(1),lessThan(10)));
+    }
 }

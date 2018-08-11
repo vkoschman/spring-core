@@ -23,6 +23,7 @@
     </util:set>
 
     <bean id="zulJin" class="com.andreitop.xml.unit.Troll">
+        <property name="colorCode" value="#{T(java.util.concurrent.ThreadLocalRandom).current().nextInt(1,10)}"/>
         <property name="creationDate" value="${character.created}"/>
         <property name="listOfMounts">
             <list>

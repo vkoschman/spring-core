@@ -13,6 +13,15 @@ public class Troll implements Unit {
     private Map<String, Mount> mapOfMounts;
     private Date creationDate;
     public static final Mount DEFAULT_MOUNT = new Wolf();
+    private int colorCode;
+
+    public int getColorCode() {
+        return colorCode;
+    }
+
+    public void setColorCode(int colorCode) {
+        this.colorCode = colorCode;
+    }
 
     public Date getCreationDate() {
         return creationDate;
