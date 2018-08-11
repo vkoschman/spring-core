@@ -10,7 +10,15 @@ public class Troll implements Unit {
     private List<Mount> listOfMounts;
     private Set<Mount> setOfMounts;
     private Map<String, Mount> mapOfMounts;
+    private Date creationDate;
 
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
 
     public void setListOfMounts(List<Mount> listOfMounts) {
         this.listOfMounts = listOfMounts;

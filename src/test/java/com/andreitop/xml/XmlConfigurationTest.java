@@ -25,7 +25,7 @@ public class XmlConfigurationTest {
 
     @BeforeClass
     public static void init() {
-        ctx = new ClassPathXmlApplicationContext("heroes-context.xml","collections-context.xml");
+        ctx = new ClassPathXmlApplicationContext("heroes-context.xml", "advanced-context.xml");
         human = ctx.getBean("knight", Human.class);
         orc = (Orc) ctx.getBean("trall");
         troll = ctx.getBean("zulJin", Troll.class);
@@ -75,5 +75,10 @@ public class XmlConfigurationTest {
 
         assertThat(troll.getMapOfMounts(),IsMapContaining.hasEntry("m1", ctx.getBean("frostWolf")));
         assertThat(troll.getMapOfMounts(),IsMapContaining.hasEntry("m2", ctx.getBean("shadowTiger")));
+    }
+
+    @Test
+    public void testTrollCreationDate() {
+        assertThat(troll.getCreationDate().toString(), containsString("2004"));
     }
 }
