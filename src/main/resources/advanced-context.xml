@@ -9,6 +9,10 @@
         <constructor-arg value="dd-mm-yyyy"/>
     </bean>
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:config/heroes.properties"/>
+    </bean>
+
     <util:map id="trollMountMap" map-class="java.util.HashMap">
         <entry key="m1" value-ref="frostWolf"/>
         <entry key="m2" value-ref="shadowTiger"/>
@@ -17,10 +21,9 @@
         <ref bean="shadowTiger"/>
         <ref bean="frostWolf"/>
     </util:set>
-    <util:properties id="heroesProperties" location="classpath:config/heroes.properties"/>
 
     <bean id="zulJin" class="com.andreitop.xml.unit.Troll">
-        <property name="creationDate" value="#{heroesProperties.created}"/>
+        <property name="creationDate" value="${character.created}"/>
         <property name="listOfMounts">
             <list>
                 <util:constant static-field="com.andreitop.xml.unit.Troll.DEFAULT_MOUNT"/>
