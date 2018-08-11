@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <import resource="mount-context.xml"/>
 
@@ -9,31 +9,27 @@
         <constructor-arg value="dd-mm-yyyy"/>
     </bean>
 
+    <util:map id="trollMountMap" map-class="java.util.HashMap">
+        <entry key="m1" value-ref="frostWolf"/>
+        <entry key="m2" value-ref="shadowTiger"/>
+    </util:map>
+    <util:set id="trollMountSet">
+        <ref bean="shadowTiger"/>
+        <ref bean="frostWolf"/>
+    </util:set>
+    <util:properties id="heroesProperties" location="classpath:config/heroes.properties"/>
+
     <bean id="zulJin" class="com.andreitop.xml.unit.Troll">
-        <property name="creationDate">
-            <bean factory-bean="dateFormatter" factory-method="parse">
-                <constructor-arg value="01-01-2004"/>
-            </bean>
-        </property>
+        <property name="creationDate" value="#{heroesProperties.created}"/>
         <property name="listOfMounts">
             <list>
-                <bean id="grayWolf" class="com.andreitop.xml.mount.Wolf"/>
+                <util:constant static-field="com.andreitop.xml.unit.Troll.DEFAULT_MOUNT"/>
                 <null/>
                 <ref bean="shadowTiger"/>
             </list>
         </property>
-        <property name="setOfMounts">
-            <set>
-                <ref bean="shadowTiger"/>
-                <ref bean="frostWolf"/>
-            </set>
-        </property>
-        <property name="mapOfMounts">
-            <map>
-                <entry key="m1" value-ref="frostWolf"/>
-                <entry key="m2" value-ref="shadowTiger"/>
-            </map>
-        </property>
+        <property name="setOfMounts" ref="trollMountSet"/>
+        <property name="mapOfMounts" ref="trollMountMap"/>
     </bean>
 
 </beans>

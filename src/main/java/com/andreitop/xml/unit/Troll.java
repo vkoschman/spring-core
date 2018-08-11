@@ -1,6 +1,7 @@
 package com.andreitop.xml.unit;
 
 import com.andreitop.xml.mount.Mount;
+import com.andreitop.xml.mount.Wolf;
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -11,6 +12,7 @@ public class Troll implements Unit {
     private Set<Mount> setOfMounts;
     private Map<String, Mount> mapOfMounts;
     private Date creationDate;
+    public static final Mount DEFAULT_MOUNT = new Wolf();
 
     public Date getCreationDate() {
         return creationDate;
