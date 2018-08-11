@@ -1,7 +1,6 @@
 package com.andreitop.xml;
 
 import com.andreitop.xml.mount.Tiger;
-import com.andreitop.xml.mount.Wolf;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -22,13 +21,36 @@ public class XmlConfigurationTest {
     }
 
     @Test
-    public void testWolfBeanCreation() {
-        assertThat(Arrays.deepToString(ctx.getBeanNamesForType(Wolf.class)), containsString("frostWolf"));
+    public void testCreatedTigerBean() {
+        assertThat(ctx.getBeanNamesForType(Tiger.class).length, is(6));
+        assertThat(ctx.getBeanNamesForType(Tiger.class),
+                arrayContainingInAnyOrder("$",
+                        "tiger00",
+                        "tiger01",
+                        "tiger02/tiger03",
+                        "tiger04; tiger05",
+                        "tiger04"));
+
     }
 
     @Test
-    public void testTigerBeanCreation() {
-        assertThat(Arrays.deepToString(ctx.getBeanNamesForType(Tiger.class)), containsString("shadowTiger"));
+    public void testTigerBeanDefinitions() {
+        assertThat(ctx.getBeanDefinitionCount(), is(7));
+        assertThat(Arrays.asList(ctx.getBeanDefinitionNames()),
+                hasItems("$",
+                        "tiger00",
+                        "tiger01",
+                        "tiger02/tiger03",
+                        "tiger04; tiger05",
+                        "tiger04"));
+        assertThat(Arrays.asList(ctx.getBeanDefinitionNames()), hasItem(startsWith("com.andreitop.xml.mount.Tiger")));
+    }
+
+    @Test
+    public void testTigerBeanAliases() {
+        assertThat(ctx.getAliases("tiger04"), arrayContainingInAnyOrder("tiger05","tiger004","tiger005"));
+        assertThat(ctx.getAliases("tiger01"), arrayContainingInAnyOrder("tiger02"));
+        assertThat(ctx.getAliases("tiger02/tiger03"), arrayContainingInAnyOrder("shadowTiger"));
     }
 
 }
