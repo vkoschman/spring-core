@@ -53,4 +53,10 @@ public class XmlConfigurationTest {
         assertThat(ctx.getAliases("tiger02/tiger03"), arrayContainingInAnyOrder("shadowTiger"));
     }
 
+
+    @Test
+    public void testTigerBeanAnnotatedConfig() {
+        assertThat(Arrays.deepToString(ctx.getBeanNamesForType(Tiger.class)), containsString("spectralTiger"));
+    }
+
 }

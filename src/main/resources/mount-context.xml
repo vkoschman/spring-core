@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="$" class="com.andreitop.xml.mount.Tiger"/>
     <bean class="com.andreitop.xml.mount.Tiger" abstract="true"/>
@@ -10,5 +11,8 @@
     <bean id="tiger02/tiger03" name="shadowTiger" class="com.andreitop.xml.mount.Tiger"/>
     <bean id="tiger04; tiger05" class="com.andreitop.xml.mount.Tiger"/>
     <bean name="tiger04; tiger05, tiger004 tiger005" class="com.andreitop.xml.mount.Tiger"/>
+
+    <!--activate annotations in beans already registered in the context-->
+    <context:annotation-config/>
     
 </beans>
