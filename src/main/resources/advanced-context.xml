@@ -5,13 +5,10 @@
 
     <import resource="mount-context.xml"/>
 
-    <bean id="dateFormatter" class="java.text.SimpleDateFormat">
-        <constructor-arg value="dd-mm-yyyy"/>
-    </bean>
 
     <bean id="zulJin" class="com.andreitop.xml.unit.Troll">
         <property name="creationDate">
-            <bean factory-bean="dateFormatter" factory-method="parse">
+            <bean class="com.andreitop.xml.utils.DateFactory" factory-method="createDate">
                 <constructor-arg value="01-01-2004"/>
             </bean>
         </property>
