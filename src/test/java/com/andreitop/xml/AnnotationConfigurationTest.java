@@ -1,5 +1,6 @@
 package com.andreitop.xml;
 
+import com.andreitop.xml.config.AppConfig;
 import com.andreitop.xml.mount.Tiger;
 import com.andreitop.xml.mount.Wolf;
 import com.andreitop.xml.unit.Human;
@@ -8,7 +9,7 @@ import com.andreitop.xml.unit.Troll;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.hamcrest.collection.IsMapContaining;
 
 import java.util.Arrays;
@@ -16,7 +17,7 @@ import java.util.Arrays;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class XmlConfigurationTest {
+public class AnnotationConfigurationTest {
 
     private static ApplicationContext ctx;
     private static Human human;
@@ -25,7 +26,7 @@ public class XmlConfigurationTest {
 
     @BeforeClass
     public static void init() {
-        ctx = new ClassPathXmlApplicationContext("heroes-context.xml", "advanced-context.xml");
+        ctx = new AnnotationConfigApplicationContext(AppConfig.class);
         human = ctx.getBean("knight", Human.class);
         orc = (Orc) ctx.getBean("trall");
         troll = ctx.getBean("zulJin", Troll.class);
