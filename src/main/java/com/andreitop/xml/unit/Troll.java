@@ -2,6 +2,7 @@ package com.andreitop.xml.unit;
 
 import com.andreitop.xml.mount.Mount;
 import com.andreitop.xml.mount.Wolf;
+import javax.annotation.Resource;
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -39,6 +40,7 @@ public class Troll implements Unit {
         this.setOfMounts = setOfMounts;
     }
 
+    @Resource(name = "trollMountMap")
     public void setMapOfMounts(Map<String, Mount> mapOfMounts) {
         this.mapOfMounts = mapOfMounts;
     }
@@ -47,6 +49,7 @@ public class Troll implements Unit {
         return listOfMounts;
     }
 
+    @Resource(name = "trollMountSet")
     public Set<Mount> getSetOfMounts() {
         return setOfMounts;
     }
